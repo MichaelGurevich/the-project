@@ -1,7 +1,8 @@
-import FeaturedCard from "./UI/HomePageUI/FeaturedCard";
+import FeaturedCard from "./HomePageUI/FeaturedCard";
 import styled from "styled-components/native";
-import CompanyLogo from "./UI/CompanyLogo";
+import CompanyLogo from "./CompanyLogo";
 import { Text } from "react-native";
+import FeaturedFooter from "./HomePageUI/FeaturedFooter";
 
 
 const FeaturedHeaderContaier = styled.View`
@@ -33,6 +34,7 @@ const Featured = () => {
                     <Text style={{fontSize:16}}>Meta | Tel - Aviv | Hybrid</Text>
                 </FeaturedHeaderTitleContainer>
             </FeaturedHeaderContaier>
+            <FeaturedFooter/>
         </FeaturedCard>
     );
 };

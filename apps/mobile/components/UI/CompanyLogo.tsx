@@ -2,6 +2,7 @@ import React from 'react';
 import { ImageSourcePropType } from 'react-native';
 import styled from 'styled-components/native';
 
+
 interface CompanyLogoProps {
   source?: ImageSourcePropType;
   alt?: string;
