@@ -1,10 +1,12 @@
 
 import {View, Text} from 'react-native';
 
+import Featured from '@/components/Featured';
+
 export default function HomeScreen() {
   return (
     <View>
-        <Text>Hello World!</Text>
+       <Featured />
     </View>
   );
 }
