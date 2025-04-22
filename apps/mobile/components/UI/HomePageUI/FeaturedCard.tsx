@@ -28,5 +28,4 @@ const FeaturedCard = styled.View`
 
 `;
 
-
 export default FeaturedCard;
