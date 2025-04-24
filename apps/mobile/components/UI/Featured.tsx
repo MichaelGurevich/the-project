@@ -30,8 +30,8 @@ const Featured = () => {
             <FeaturedHeaderContaier>
                 <CompanyLogo/>
                 <FeaturedHeaderTitleContainer>
-                    <Text style={{fontSize: 26, fontWeight:'bold'}} >Software Engineer</Text>
-                    <Text style={{fontSize:16}}>Meta | Tel - Aviv | Hybrid</Text>
+                    <Text style={{fontSize: 26, fontWeight:'bold'}} >Some text</Text>
+                    <Text style={{fontSize:16}}>some other text</Text>
                 </FeaturedHeaderTitleContainer>
             </FeaturedHeaderContaier>
             <FeaturedFooter/>
