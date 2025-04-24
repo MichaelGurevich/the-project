@@ -4,7 +4,7 @@ const FeatureFooterMainContainer = styled.View`
     flex-direction: column;    
     height: 80px;
     width: 100%;
-    background-color: white;
+    background-color: grey;
     margin-top: auto;
     `
 

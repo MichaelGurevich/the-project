@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 import CompanyLogo from "./CompanyLogo";
 import { Text } from "react-native";
 import FeaturedFooter from "./HomePageUI/FeaturedFooter";
-
+import FeaturedText from "./HomePageUI/FeaturedText";
 
 const FeaturedHeaderContaier = styled.View`
     flex-direction: row;    
@@ -32,8 +32,16 @@ const Featured = () => {
                 <FeaturedHeaderTitleContainer>
                     <Text style={{fontSize: 26, fontWeight:'bold'}} >Some text</Text>
                     <Text style={{fontSize:16}}>some other text</Text>
-                </FeaturedHeaderTitleContainer>
+                </FeaturedHeaderTitleContainer>  
             </FeaturedHeaderContaier>
+                <FeaturedText title={"Description"}>
+                    This is some more text
+                    This is some more text
+                    This is some more text
+                    This is some more text
+                    This is some more text
+                </FeaturedText>
+            
             <FeaturedFooter/>
         </FeaturedCard>
     );
