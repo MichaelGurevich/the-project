@@ -13,7 +13,7 @@ const FeaturedCard = styled.View`
   height: ${windowHeight * 0.5}px;
   margin: 10px;
   border-radius: 10px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.palette.background.default};
 
   /* Android */
   ${Platform.OS === 'android' && `elevation: 3;`}
