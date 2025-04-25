@@ -1,5 +1,6 @@
 import styled from "styled-components/native";
 import { Chip, ChipProps } from "../../../Chip";
+import React from "react";
 
 const FooterContainer = styled.View`
   flex-direction: row;

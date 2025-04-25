@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { Dimensions, Platform } from "react-native";
+import { Platform } from "react-native";
 import styled from "styled-components/native";
 import {
   FeaturedCardFooter,
