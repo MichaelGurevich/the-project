@@ -5,6 +5,7 @@ import { Text } from "react-native";
 import FeaturedFooter from "./HomePageUI/FeaturedFooter";
 import FeaturedText from "./HomePageUI/FeaturedText";
 import SkillTag from "./SkillTag";
+import JobTitleSection from "./JobTitleSection";
 
 const FeaturedHeaderContaier = styled.View`
     flex-direction: row;    
@@ -32,25 +33,55 @@ const sampleSkills = [
   ];
 
 
+interface jobDescription  {
+    title: string,
+    body: string,
+}
+
+interface FeaturedProps {
+    jobId: string,
+    publishedDate: string,
+    companyLogo: string,
+    title: string,
+    complanyName: string
+    location: string,
+    workLoad: string,
+    workMode: string,
+    description: jobDescription,
+}
+
+
+const longDescription = `We are looking for a highly motivated Software Engineer to join our
+team. You will work on building scalable backend services, designing
+system architectures, and collaborating closely with frontend developers
+to deliver seamless user experiences across our platforms.`;
+
+const longQualification = `• Bachelor’s degree in Computer Science or related field
+• 3+ years of professional experience with Node.js or Python
+• Hands-on experience with AWS services (Lambda, DynamoDB, S3)
+• Strong understanding of RESTful API design principles
+• Excellent problem-solving and communication skills`;
+
 
 const Featured = () => {
 
     return (
         <FeaturedCard>
             <FeaturedHeaderContaier>
-                <CompanyLogo/>
+                <CompanyLogo 
+                source={{uri:"https://pngimg.com/uploads/meta/meta_PNG12.png"}}/>
                 <FeaturedHeaderTitleContainer>
-                    <Text style={{fontSize: 26, fontWeight:'bold'}} >Software Engineer</Text>
-                    <Text style={{fontSize:16}}>Meta | Tel - Aviv | Hybrid</Text>
+                    <JobTitleSection
+                        title={"Software Engineer"}
+                        meta={["Meta", "Tel - Aviv", "Hybrid"]}
+                    />
                 </FeaturedHeaderTitleContainer>  
             </FeaturedHeaderContaier>
-                <FeaturedText title={"Description"}>
-                    This is some more text
-                    This is some more text
-                    This is some more text
-                    This is some more text
-                    This is some more text
-                </FeaturedText>
+
+                <FeaturedText
+                    description={longDescription}
+                    qualification={longQualification}
+                />
                 
             <FeaturedFooter>
                 {sampleSkills.map((skill, index) => {
@@ -59,8 +90,6 @@ const Featured = () => {
                     )
                 })}
             </FeaturedFooter>
-               
-            
         </FeaturedCard>
     );
 };
