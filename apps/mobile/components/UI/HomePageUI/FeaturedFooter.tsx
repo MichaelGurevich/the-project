@@ -8,8 +8,8 @@ const FooterContainer = styled.View`
     width: 100%;
     background-color: white;
     margin-top: auto;
-    margin-left: 10px;
-    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
     `
 
     interface FeaturedFooterProps {
