@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components/native";
 
-export type SectionedTextProps = {
+type JobTitleSectionProps = {
   text: string[] | string;
-  seperator?: string;
+  separator?: string;
 };
 
 const TextContainer = styled.Text`
@@ -12,14 +12,17 @@ const TextContainer = styled.Text`
   margin-top: 4px;
 `;
 
-export const SectionedText = ({
+export const SectionedTest = ({
   text,
-  seperator = " | ",
-}: SectionedTextProps) => {
-  let finaltext;
+  separator = " | ",
+}: JobTitleSectionProps) => {
+  let finalText;
+
   if (Array.isArray(text)) {
-    finaltext = text.join(seperator);
+    finalText = text.join(separator);
+  } else {
+    finalText = text;
   }
 
-  return <TextContainer>{finaltext?.split(" ").join(seperator)}</TextContainer>;
+  return <TextContainer>{finalText}</TextContainer>;
 };

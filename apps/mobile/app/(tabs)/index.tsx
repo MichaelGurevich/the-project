@@ -2,7 +2,7 @@ import React from "react";
 import { View } from "react-native";
 import { ThemeProvider } from "styled-components/native";
 import { lightTheme } from "@/theme/theme";
-import Featured, { FeaturedProps } from "@/components/Featured";
+import { FeaturedTileLayout } from "@/layouts/FeaturedTileLayout";
 
 const longDescription = `We are looking for a highly motivated Software Engineer to join our
 team. You will work on building scalable backend services, designing
@@ -24,7 +24,7 @@ const sampleSkills = [
   { skill: "Docker", matched: false },
 ];
 
-const featuredProps: FeaturedProps = {
+const featuredProps = {
   jobId: "12345",
   publishedDate: "2023-10-01",
   companyLogo: { uri: "https://pngimg.com/uploads/meta/meta_PNG12.png" },
@@ -44,7 +44,7 @@ export default function HomeScreen() {
   return (
     <ThemeProvider theme={lightTheme}>
       <View style={{ flex: 1, backgroundColor: "#fff" }}>
-        <Featured {...featuredProps} />
+        <FeaturedTileLayout {...featuredProps} />
       </View>
     </ThemeProvider>
   );

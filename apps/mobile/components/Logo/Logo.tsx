@@ -1,6 +1,8 @@
 import { ImageProps } from "react-native";
 import styled from "styled-components/native";
 
+export const DEFAULT_LOGO_SIZE = 80;
+
 export type LogoProps = {
   size?: number;
 } & Pick<ImageProps, "source" | "accessibilityLabel">;
@@ -32,7 +34,7 @@ const LogoImage = styled.Image.attrs({
   height: 100%;
 `;
 
-export const Logo = ({ size = 80, ...rest }: LogoProps) => (
+export const Logo = ({ size = DEFAULT_LOGO_SIZE, ...rest }: LogoProps) => (
   <LogoWrapper size={size}>
     <LogoImage {...rest} />
   </LogoWrapper>
