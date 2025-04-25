@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components/native";
 
-type JobTitleSectionProps = {
-  text: string[] | string;
+export type SectionedTextProps = {
+  text: string[];
   separator?: string;
 };
 
@@ -12,17 +12,9 @@ const TextContainer = styled.Text`
   margin-top: 4px;
 `;
 
-export const SectionedTest = ({
+export const SectionedText = ({
   text,
   separator = " | ",
-}: JobTitleSectionProps) => {
-  let finalText;
-
-  if (Array.isArray(text)) {
-    finalText = text.join(separator);
-  } else {
-    finalText = text;
-  }
-
-  return <TextContainer>{finalText}</TextContainer>;
+}: SectionedTextProps) => {
+  return <TextContainer>{text.join(separator).toString()}</TextContainer>;
 };

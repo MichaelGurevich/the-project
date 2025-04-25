@@ -24,27 +24,29 @@ const sampleSkills = [
   { skill: "Docker", matched: false },
 ];
 
-const featuredProps = {
-  jobId: "12345",
-  publishedDate: "2023-10-01",
-  companyLogo: { uri: "https://pngimg.com/uploads/meta/meta_PNG12.png" },
-  title: "Software Engineer",
-  companyName: "Meta",
-  location: "Tel Aviv",
-  workLoad: "Full Time",
-  workMode: "Hybrid",
-  jobText: {
-    description: longDescription,
-    qualification: longQualification,
+const featuredProps = [
+  {
+    jobId: "12345",
+    publishedDate: "2023-10-01",
+    companyLogo: { uri: "https://pngimg.com/uploads/meta/meta_PNG12.png" },
+    title: "Software Engineer",
+    companyName: "Meta",
+    location: "Tel Aviv",
+    workLoad: "Full Time",
+    workMode: "Hybrid",
+    jobText: {
+      description: longDescription,
+      qualification: longQualification,
+    },
+    skills: sampleSkills,
   },
-  skills: sampleSkills,
-};
+];
 
 export default function HomeScreen() {
   return (
     <ThemeProvider theme={lightTheme}>
       <View style={{ flex: 1, backgroundColor: "#fff" }}>
-        <FeaturedTileLayout {...featuredProps} />
+        <FeaturedTileLayout jobList={featuredProps} />
       </View>
     </ThemeProvider>
   );

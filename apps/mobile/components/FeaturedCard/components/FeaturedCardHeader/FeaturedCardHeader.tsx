@@ -1,5 +1,6 @@
 import { Logo, LogoProps } from "@/components/Logo";
 import { SectionedText, SectionedTextProps } from "@/components/SectionedText";
+import React from "react";
 import styled from "styled-components/native";
 
 export type FeaturedCardHeaderProps = {

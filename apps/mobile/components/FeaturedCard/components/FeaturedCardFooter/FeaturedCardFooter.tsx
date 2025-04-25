@@ -16,8 +16,8 @@ export type FeaturedCardFooterProps = { skills: ChipProps[] };
 
 export const FeaturedCardFooter = ({ skills }: FeaturedCardFooterProps) => (
   <FooterContainer>
-    {skills.map((c) => (
-      <Chip {...c} />
+    {skills.map((c, index) => (
+      <Chip key={`${c.name}-${index}`} {...c} />
     ))}
   </FooterContainer>
 );
