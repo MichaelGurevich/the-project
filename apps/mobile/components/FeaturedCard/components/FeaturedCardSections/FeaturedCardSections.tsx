@@ -12,20 +12,20 @@ export type FeaturedCardSectionsProps = {
 };
 
 const Container = styled.View`
-  padding: 8px 10px;
+  padding: 8px 10px; //TODO Theme
 `;
 
 const SectionTitle = styled.Text`
   font-size: ${({ theme }) => theme.typography.fontSize.lg}px;
   font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
   color: ${({ theme }) => theme.palette.text.primary};
-  margin-top: 8px;
+  margin-top: 8px; //TODO Theme
 `;
 
 const SectionText = styled.Text`
   font-size: ${({ theme }) => theme.typography.fontSize.md}px;
   color: ${({ theme }) => theme.palette.text.primary};
-  margin-top: 4px;
+  margin-top: 4px; //TODO Theme
 `;
 
 export const FeaturedCardSections = ({

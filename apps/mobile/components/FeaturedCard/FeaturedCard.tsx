@@ -13,8 +13,8 @@ import {
 const FeaturedCardRoot = styled.View`
   display: flex;
   flex-direction: column;
-  margin: 10px;
-  border-radius: 10px;
+  margin: 10px; //TODO Theme
+  border-radius: 10px; //TODO Theme
   background-color: ${({ theme }) => theme.palette.background.default};
 
   /* Android */

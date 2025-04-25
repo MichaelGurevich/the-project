@@ -13,9 +13,9 @@ const TagContainer = styled.View<{ isActive: boolean }>`
   justify-content: center;
   border-color: ${({ isActive, theme }) =>
     isActive ? theme.palette.primary[600] : theme.palette.neutral[300]};
-  padding: 4px 8px;
-  border-radius: 15px;
-  margin: 2px;
+  padding: 4px 8px; //TODO Theme
+  border-radius: 15px; //TODO Theme
+  margin: 2px; //TODO Theme
   border-width: 2px;
   height: 30px;
 `;
@@ -23,7 +23,7 @@ const TagContainer = styled.View<{ isActive: boolean }>`
 const TagText = styled.Text<{ isActive: boolean }>`
   color: ${({ isActive, theme }) =>
     isActive ? theme.palette.neutral[900] : theme.palette.neutral[700]};
-  font-size: 14px;
+  font-size: 14px; //TODO Theme
   font-weight: ${({ isActive }) => (isActive ? 500 : 400)};
 `;
 

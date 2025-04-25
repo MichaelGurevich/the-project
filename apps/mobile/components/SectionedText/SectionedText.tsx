@@ -9,7 +9,7 @@ export type SectionedTextProps = {
 const TextContainer = styled.Text`
   font-size: ${({ theme }) => theme.typography.fontSize.md}px;
   color: ${({ theme }) => theme.palette.text.secondary};
-  margin-top: 4px;
+  margin-top: 4px; //TODO Theme
 `;
 
 export const SectionedText = ({
