@@ -4,6 +4,7 @@ import CompanyLogo from "./CompanyLogo";
 import { Text } from "react-native";
 import FeaturedFooter from "./HomePageUI/FeaturedFooter";
 import FeaturedText from "./HomePageUI/FeaturedText";
+import SkillTag from "./SkillTag";
 
 const FeaturedHeaderContaier = styled.View`
     flex-direction: row;    
@@ -21,6 +22,15 @@ const FeaturedHeaderTitleContainer = styled.View`
     justify-content: center;    
 `
 
+const sampleSkills = [
+    { skill: 'JavaScript', matched: true },
+    { skill: 'TypeScript', matched: true },
+    { skill: 'React Native', matched: false },
+    { skill: 'GraphQL', matched: false },
+    { skill: 'AWS', matched: true },
+    { skill: 'Docker', matched: false },
+  ];
+
 
 
 const Featured = () => {
@@ -30,8 +40,8 @@ const Featured = () => {
             <FeaturedHeaderContaier>
                 <CompanyLogo/>
                 <FeaturedHeaderTitleContainer>
-                    <Text style={{fontSize: 26, fontWeight:'bold'}} >Some text</Text>
-                    <Text style={{fontSize:16}}>some other text</Text>
+                    <Text style={{fontSize: 26, fontWeight:'bold'}} >Software Engineer</Text>
+                    <Text style={{fontSize:16}}>Meta | Tel - Aviv | Hybrid</Text>
                 </FeaturedHeaderTitleContainer>  
             </FeaturedHeaderContaier>
                 <FeaturedText title={"Description"}>
@@ -41,8 +51,16 @@ const Featured = () => {
                     This is some more text
                     This is some more text
                 </FeaturedText>
+                
+            <FeaturedFooter>
+                {sampleSkills.map((skill, index) => {
+                    return (
+                        <SkillTag key={index} skill={skill.skill} matched={skill.matched} />
+                    )
+                })}
+            </FeaturedFooter>
+               
             
-            <FeaturedFooter/>
         </FeaturedCard>
     );
 };

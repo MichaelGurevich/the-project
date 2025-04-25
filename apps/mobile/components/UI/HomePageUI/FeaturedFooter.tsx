@@ -1,21 +1,31 @@
 import styled from "styled-components/native";
+import SkillTag from "../SkillTag";
 
-const FeatureFooterMainContainer = styled.View`
-    flex-direction: column;    
+const FooterContainer = styled.View`
+    flex-direction: row;    
+    flex-wrap: wrap;
     height: 80px;
     width: 100%;
-    background-color: grey;
+    background-color: white;
     margin-top: auto;
+    margin-left: 10px;
+    margin-right: 10px;
     `
 
+    interface FeaturedFooterProps {
+        /**
+         * Children elements, typically SkillTag components
+         */
+        children: React.ReactNode;
+      }
 
-const FeaturedFooter = () => {
-    return (
-
-        <FeatureFooterMainContainer>
-
-        </FeatureFooterMainContainer>
-    );
-}
-
-export default FeaturedFooter;
+/**
+ * Footer for the featured section, rendering SkillTag components
+ */
+const FeaturedFooter: React.FC<FeaturedFooterProps> = ({ children }) => (
+    <FooterContainer>
+     {children}
+    </FooterContainer>
+  );
+  
+  export default FeaturedFooter;
