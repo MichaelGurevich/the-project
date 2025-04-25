@@ -1,12 +1,12 @@
-import React from 'react';
-import { ImageSourcePropType } from 'react-native';
-import styled from 'styled-components/native';
-import FeaturedCard from './HomePageUI/FeaturedCard';
-import CompanyLogo from './CompanyLogo';
-import JobTitleSection from './JobTitleSection';
-import FeaturedBodyText from './HomePageUI/FeaturedBodyText';
-import FeaturedFooter from './HomePageUI/FeaturedFooter';
-import SkillTag from './SkillTag';
+import React from "react";
+import { ImageSourcePropType } from "react-native";
+import styled from "styled-components/native";
+import FeaturedCard from "./FeaturedCard/components/FeaturedCard";
+import CompanyLogo from "./CompanyLogo";
+import JobTitleSection from "./JobTitleSection";
+import FeaturedBodyText from "./FeaturedCard/components/FeaturedCardSections/FeaturedCardSections";
+import FeaturedFooter from "./FeaturedCard/components/FeaturedCardFooter";
+import SkillTag from "./Chip/Chip";
 
 /**
  * Text blocks for description and qualification
