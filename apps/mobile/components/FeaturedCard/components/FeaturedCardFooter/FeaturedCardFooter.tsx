@@ -9,8 +9,8 @@ const FooterContainer = styled.View`
   width: 100%;
   background-color: white;
   margin-top: auto;
-  padding-left: 10px; //TODO Theme
-  padding-right: 10px; //TODO Theme
+  padding-left: 10px; 
+  padding-right: 10px; 
 `;
 
 export type FeaturedCardFooterProps = { skills: ChipProps[] };

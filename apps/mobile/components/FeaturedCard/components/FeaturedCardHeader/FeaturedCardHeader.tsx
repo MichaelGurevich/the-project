@@ -18,7 +18,7 @@ const FeaturedHeaderContainer = styled.View`
 const FeaturedHeaderTitleContainer = styled.View`
   flex: 1;
   justify-content: center;
-  padding-left: 8px; //TODO Theme
+  padding-left: 8px; 
 `;
 
 const TitleText = styled.Text`
