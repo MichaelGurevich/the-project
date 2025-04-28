@@ -1,11 +1,20 @@
 import React from 'react'
-import { View, SafeAreaView } from 'react-native'
+import { SafeAreaView, ImageSourcePropType } from 'react-native'
 import styled from 'styled-components/native';
 import { TabBarItem } from './components/TabBarItem';
 
+export type BottomTabsIconsData = {
+    pageName: string,
+    iconSource: ImageSourcePropType;
+    focusedIconSource: ImageSourcePropType;
+}
 
-
-
+export type BottomTabBarProps = {
+    iconsData: BottomTabsIconsData[],
+    state: any,
+    descriptors: any,
+    navigation: any,
+}
 
 const BottomTabsContainer = styled(SafeAreaView)`
   flex-direction: row;
@@ -18,14 +27,9 @@ const BottomTabsContainer = styled(SafeAreaView)`
   height: 56px;
 `;
 
-const iconSource = require('../../icons/BottomNavBarIcons/tab-icon-home-outline-black.png');
-
-
-export const BottomTabBar = ({ state, descriptors, navigation }: any) => {
-    // console.log(state)
+export const BottomTabBar = ({ state, descriptors, navigation, iconsData }: BottomTabBarProps) => {
     return (
         <BottomTabsContainer>
-
             {state.routes.map((route: any, index: number) => {
                 const isFocused = state.index === index;
 
@@ -41,15 +45,17 @@ export const BottomTabBar = ({ state, descriptors, navigation }: any) => {
                     }
                 };
 
-
+                const tabData = iconsData.find(item => item.pageName === route.name);
+                
                 return (
-                    <TabBarItem size={32} source={iconSource} onPress={onPress}/>
+                    <TabBarItem 
+                        key={route.key}
+                        size={26} 
+                        source={isFocused ? tabData?.focusedIconSource : tabData?.iconSource} 
+                        onPress={onPress} 
+                    />
                 );
-
             })}
-
-
-
         </BottomTabsContainer>
     );
-} 
+}

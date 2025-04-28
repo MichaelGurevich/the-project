@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { Pressable, PressableProps } from 'react-native';
+import { Pressable, PressableProps, View } from 'react-native';
 import { Icon, IconProps } from '../../../Icon';
 
 // Merge Icon props and Pressable props cleanly
@@ -11,7 +11,6 @@ const TabBarItemContainer = styled(Pressable)`
   align-items: center;
   justify-content: center;
   height: 100%;
-  width: 50px;
   background-color: #fff;
 `;
 
