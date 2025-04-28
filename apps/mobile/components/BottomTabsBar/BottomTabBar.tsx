@@ -1,21 +1,23 @@
 import React from 'react'
-import {View} from 'react-native'
+import {View, SafeAreaView } from 'react-native'
 import styled from 'styled-components/native';
 
 
-const TabsContainer = styled.View`
-    height: 100px;
-    width: 100%;
-    background-color: ${({theme}) => theme.palette.neutral[50]};
-    border-color: ${({theme}) => theme.palette.neutral[900]};
-    border-width: 2px;
-
-`
+const BottomTabsContainer = styled(SafeAreaView)`
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+  border-top-width: 1px;
+  border-top-color: #e6e6e6;
+  padding-vertical: 8px;
+  height: 56px;
+`;
 
 export const BottomTabBar = () => {
     return (
-        <TabsContainer>
+        <BottomTabsContainer>
 
-        </TabsContainer>
+        </BottomTabsContainer>
     );
 } 
