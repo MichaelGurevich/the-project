@@ -29,7 +29,7 @@ export default function TabLayout() {
     return (
         <ThemeProvider theme={lightTheme}>
             <Tabs
-                tabBar={props => <TabItem />}
+                tabBar={props => <BottomTabBar {...props} />}
             >
 
                 <Tabs.Screen
@@ -45,6 +45,14 @@ export default function TabLayout() {
                     name="Saved"
                     options={{
                         title: 'Saved',
+                        headerShown: false,
+                    }}
+                />
+
+                <Tabs.Screen
+                    name="profile"
+                    options={{
+                        title: 'Profile',
                         headerShown: false,
                     }}
                 />

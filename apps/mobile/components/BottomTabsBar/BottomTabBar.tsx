@@ -1,7 +1,10 @@
 import React from 'react'
-import {View, SafeAreaView } from 'react-native'
+import { View, SafeAreaView } from 'react-native'
 import styled from 'styled-components/native';
 import { TabBarItem } from './components/TabBarItem';
+
+
+
 
 
 const BottomTabsContainer = styled(SafeAreaView)`
@@ -15,14 +18,38 @@ const BottomTabsContainer = styled(SafeAreaView)`
   height: 56px;
 `;
 
-export const BottomTabBar = () => {
+const iconSource = require('../../icons/BottomNavBarIcons/tab-icon-home-outline-black.png');
+
+
+export const BottomTabBar = ({ state, descriptors, navigation }: any) => {
+    // console.log(state)
     return (
         <BottomTabsContainer>
-            <TabBarItem/>
-            <TabBarItem/>
-            <TabBarItem/>
-            <TabBarItem/>
-            
+
+            {state.routes.map((route: any, index: number) => {
+                const isFocused = state.index === index;
+
+                const onPress = () => {
+                    const event = navigation.emit({
+                        type: 'tabPress',
+                        target: route.key,
+                        canPreventDefault: true,
+                    });
+
+                    if (!isFocused && !event.defaultPrevented) {
+                        navigation.navigate(route.name);
+                    }
+                };
+
+
+                return (
+                    <TabBarItem size={32} source={iconSource} onPress={onPress}/>
+                );
+
+            })}
+
+
+
         </BottomTabsContainer>
     );
 } 
