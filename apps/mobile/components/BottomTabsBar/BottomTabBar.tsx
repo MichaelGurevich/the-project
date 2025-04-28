@@ -1,6 +1,7 @@
 import React from 'react'
 import {View, SafeAreaView } from 'react-native'
 import styled from 'styled-components/native';
+import { TabBarItem } from './components/TabBarItem';
 
 
 const BottomTabsContainer = styled(SafeAreaView)`
@@ -17,7 +18,11 @@ const BottomTabsContainer = styled(SafeAreaView)`
 export const BottomTabBar = () => {
     return (
         <BottomTabsContainer>
-
+            <TabBarItem/>
+            <TabBarItem/>
+            <TabBarItem/>
+            <TabBarItem/>
+            
         </BottomTabsContainer>
     );
 } 
