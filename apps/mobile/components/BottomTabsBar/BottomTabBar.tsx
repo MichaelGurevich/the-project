@@ -18,7 +18,7 @@ export type BottomTabBarProps = {
 
 const BottomTabsContainer = styled(SafeAreaView)`
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background-color: #fff;
   border-top-width: 1px;
@@ -28,9 +28,12 @@ const BottomTabsContainer = styled(SafeAreaView)`
 `;
 
 export const BottomTabBar = ({ state, descriptors, navigation, iconsData }: BottomTabBarProps) => {
+    
     return (
         <BottomTabsContainer>
-            {state.routes.map((route: any, index: number) => {
+            {state.routes
+            .filter((route: any) => iconsData.some(item => item.pageName === route.name))
+            .map((route: any, index: number) => {
                 const isFocused = state.index === index;
 
                 const onPress = () => {
