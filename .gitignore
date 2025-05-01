@@ -1,6 +1,7 @@
 node_modules
 
-
+backend/.venv
+.venv
 
 .nx/cache
 .nx/workspace-data
