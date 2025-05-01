@@ -2,7 +2,7 @@ from fastapi import APIRouter
 
 router = APIRouter()
 
-jobs = ["Amazon", "Facebook", "Google", "Yahoo"]
+jobs = get_jobs()
 
 ## path parameter
 @router.get("/jobs/{job_id}")
