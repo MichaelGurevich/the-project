@@ -1,14 +1,15 @@
 from fastapi import APIRouter
-from .db_access import get_jobs
+from .db_access import get_jobs, checkIfValidID
 
 router = APIRouter()
 
 jobs = get_jobs()
 
+
 ## path parameter
 @router.get("/jobs/{job_id}")
 def get_job(job_id: int):
-    if job_id > 0 and job_id <= len(jobs):
+    if checkIfValidID(job_id):
         return jobs[job_id-1]
     return None
 
