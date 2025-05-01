@@ -1,17 +1,37 @@
 {
   "private": true,
-  "name": "the-project",
+  "name": "twine",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Twine monorepo",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nx run-many --target=start --all",
+    "build": "nx run-many --target=build --all",
+    "test": "nx run-many --target=test --all",
+    "lint": "nx run-many --target=lint --all",
+    "setup": "nx run-many --target=setup --all",
+    "mobile": "nx run mobile:start",
+    "mobile:android": "nx run mobile:android",
+    "mobile:ios": "nx run mobile:ios",
+    "backend": "nx run backend:start",
+    "backend:setup": "nx run backend:setup",
+    "backend:test": "nx run backend:test",
+    "graph": "nx graph",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.8.1",
   "devDependencies": {
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "@nx/eslint-plugin": "^20.8.1",
+    "commitlint-plugin-function-rules": "^4.0.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.1",
     "nx": "20.8.0"
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
