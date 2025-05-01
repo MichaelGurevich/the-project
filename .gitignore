@@ -3,7 +3,8 @@ node_modules
 .pnp
 .pnp.js
 
-
+# Backend:
+__pycache__/
 backend/.venv
 .venv
 # Testing
