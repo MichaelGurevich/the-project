@@ -34,6 +34,7 @@ export const BottomTabBar = ({ state, descriptors, navigation, iconsData }: Bott
     return (
         <BottomTabsContainer>
             {state.routes
+            // Extra route is added by default by expo, fileter only the actuall routes
             .filter((route: any) => iconsData.some(item => item.pageName === route.name))
             .map((route: any, index: number) => {
                 const isFocused = state.index === index;
