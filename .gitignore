@@ -3,11 +3,17 @@ node_modules
 .pnp
 .pnp.js
 
-
+# Backend:
+__pycache__/
+backend/venv
+venv
 backend/.venv
 .venv
 # Testing
 coverage
+
+.nx/cache
+.nx/workspace-data
 
 # Production
 dist
