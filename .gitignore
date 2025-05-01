@@ -3,6 +3,9 @@ node_modules
 .pnp
 .pnp.js
 
+
+backend/.venv
+.venv
 # Testing
 coverage
 
@@ -10,6 +13,7 @@ coverage
 dist
 build
 out
+
 
 # Misc
 .DS_Store
