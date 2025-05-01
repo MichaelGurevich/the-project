@@ -1,0 +1,57 @@
+{
+  "name": "mobile",
+  "sourceRoot": "packages/frontend/mobile",
+  "projectType": "application",
+  "targets": {
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "expo start",
+        "cwd": "packages/frontend/mobile"
+      }
+    },
+    "android": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "expo start --android",
+        "cwd": "packages/frontend/mobile"
+      }
+    },
+    "ios": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "expo start --ios",
+        "cwd": "packages/frontend/mobile"
+      }
+    },
+    "web": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "expo start --web",
+        "cwd": "packages/frontend/mobile"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "expo lint",
+        "cwd": "packages/frontend/mobile"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "jest --watchAll",
+        "cwd": "packages/frontend/mobile"
+      }
+    },
+    "reset-project": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node ./scripts/reset-project.js",
+        "cwd": "packages/frontend/mobile"
+      }
+    }
+  },
+  "tags": []
+}
