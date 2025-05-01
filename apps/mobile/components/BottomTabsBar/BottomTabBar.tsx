@@ -3,6 +3,8 @@ import { SafeAreaView, ImageSourcePropType } from 'react-native'
 import styled from 'styled-components/native';
 import { TabBarItem } from './components/TabBarItem';
 
+const ICON_SIZE = 26;
+
 export type BottomTabsIconsData = {
     pageName: string,
     iconSource: ImageSourcePropType;
@@ -22,7 +24,7 @@ const BottomTabsContainer = styled(SafeAreaView)`
   align-items: center;
   background-color: #fff;
   border-top-width: 1px;
-  border-top-color: #e6e6e6;
+  border-top-color: ${({theme})=>(theme.palette.neutral[300])};
   padding-vertical: 8px;
   height: 56px;
 `;
@@ -53,7 +55,7 @@ export const BottomTabBar = ({ state, descriptors, navigation, iconsData }: Bott
                 return (
                     <TabBarItem 
                         key={route.key}
-                        size={26} 
+                        size={ICON_SIZE} 
                         source={isFocused ? tabData?.focusedIconSource : tabData?.iconSource} 
                         onPress={onPress} 
                     />

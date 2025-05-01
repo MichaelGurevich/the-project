@@ -15,7 +15,7 @@ const IconContainer = styled.View<{size: number, borderRadius?: number}>`
 `;
 
 const IconImage = styled.Image.attrs({
-  resizeMode: "contain", // Changed from "cover" to "contain"
+  resizeMode: "contain", 
 })`
   width: 100%;
   height: 100%;

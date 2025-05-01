@@ -11,7 +11,7 @@ const TabBarItemContainer = styled(Pressable)`
   align-items: center;
   justify-content: center;
   height: 100%;
-  background-color: #fff;
+  background-color: ${({theme}) => (theme.palette.neutral[50])};
 `;
 
 export const TabBarItem = ({ size, onPress, ...rest }: TabBarItemProps) => (
