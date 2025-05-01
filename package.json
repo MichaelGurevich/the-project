@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "Twine monorepo",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "start": "nx run-many --target=start --all",
     "build": "nx run-many --target=build --all",
     "test": "nx run-many --target=test --all",
@@ -17,6 +18,11 @@
     "backend:test": "nx run backend:test",
     "graph": "nx graph",
     "prepare": "husky"
+  },
+  "engines": {
+    "npm": "please-use-pnpm",
+    "yarn": "please-use-pnpm",
+    "pnpm": ">=7.0.0"
   },
   "keywords": [],
   "author": "",
