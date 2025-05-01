@@ -1,11 +1,17 @@
 {
   "private": true,
-  "name": "the-project",
+  "name": "twine",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Twine monorepo",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nx run-many --target=start --all",
+    "build": "nx run-many --target=build --all",
+    "test": "nx run-many --target=test --all",
+    "lint": "nx run-many --target=lint --all",
+    "mobile": "nx run mobile:start",
+    "mobile:android": "nx run mobile:android",
+    "mobile:ios": "nx run mobile:ios",
+    "graph": "nx graph"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +19,8 @@
   "packageManager": "pnpm@10.8.1",
   "devDependencies": {
     "nx": "20.8.0"
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
