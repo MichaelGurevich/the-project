@@ -1,13 +1,2 @@
-# Check if the commit message is from merge, rebase, or already contains the template
-if [ -z "$COMMIT_SOURCE" ] || [ "$COMMIT_SOURCE" = "message" ]; then
-  # If commit message doesn't already contain ticket reference pattern
-  if ! grep -q "TWN-[0-9]" "$1"; then
-    # Prepend the template to the commit message file
-    TEMPLATE=$(cat commit-template.md)
-    ORIG_MSG=$(cat "$1")
-    echo "$TEMPLATE" > "$1"
-    if [ -n "$ORIG_MSG" ]; then
-      echo "$ORIG_MSG" >> "$1"
-    fi
-  fi
-fi
+#!/usr/bin/env sh
+. "$(dirname "$0")/h"
