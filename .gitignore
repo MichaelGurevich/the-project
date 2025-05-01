@@ -5,6 +5,8 @@ node_modules
 
 # Backend:
 __pycache__/
+backend/venv
+venv
 backend/.venv
 .venv
 # Testing
