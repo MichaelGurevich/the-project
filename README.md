@@ -7,7 +7,10 @@ A monorepo managed with NX and PNPM.
 ```
 twine/
 ├── packages/
-│   ├── backend/
+│   ├── backend/ (Python backend)
+│   │   ├── microservices/
+│   │   ├── main.py
+│   │   └── requirements.txt
 │   └── frontend/
 │       └── mobile/ (React Native Expo app)
 ```
@@ -19,6 +22,8 @@ twine/
 - Node.js (v18+)
 - PNPM (v10.8.1+)
 - NX CLI (installed globally)
+- Python 3.9+ (for backend)
+- pip (for Python package management)
 
 ### Installation
 
@@ -27,8 +32,15 @@ twine/
 git clone <your-repo-url>
 cd twine
 
-# Install dependencies
+# Install JavaScript dependencies
 pnpm install
+
+# Install Python dependencies
+pnpm backend:setup
+# OR
+cd packages/backend
+pip install -r requirements.txt
+cd ../..
 ```
 
 ### Running Apps
@@ -45,6 +57,9 @@ pnpm mobile:android
 
 # Start mobile app on iOS
 pnpm mobile:ios
+
+# Start only the backend
+pnpm backend
 ```
 
 ### Development Commands
