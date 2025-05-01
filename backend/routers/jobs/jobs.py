@@ -1,10 +1,9 @@
 from fastapi import APIRouter
-from .db_access import get_jobs, checkIfValidID
+from .job_sources import get_jobs, checkIfValidID
 
 router = APIRouter()
 
 jobs = get_jobs()
-
 
 ## path parameter
 @router.get("/jobs/{job_id}")
