@@ -1,15 +1,12 @@
 from fastapi import APIRouter
-#from db_access.models.UserProfile import UserProfile
-#from ...db_access.models.UserProfile import UserProfile
-from backend.db_access.models.UserProfile import UserProfile
-from ..jobs.jobs import checkIfValidID, jobs
+from packages.backend.db_access.models.UserProfile import UserProfile
+from ..jobs.jobs import checkIfValidID
 
 router = APIRouter()
 
 @router.put("/save")
 def save_job(job_id: int, user: UserProfile):
     if checkIfValidID(job_id):
-        job = jobs[job_id-1]
         # save job in database
         return "Job saved"
     else:
