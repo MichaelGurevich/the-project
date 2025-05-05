@@ -1,6 +1,9 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
+from types import List
 
 class UserProfile(BaseModel):
-    user_id: str
-    name: str
-    password: str
+    username: str
+    full_name: str
+    email: EmailStr
+    password: str # hashed
+    favorites: List[str] # list of job id's
