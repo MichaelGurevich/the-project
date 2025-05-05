@@ -1,6 +1,4 @@
 from fastapi import APIRouter
-#from db_access.models.UserProfile import UserProfile
-#from ...db_access.models.UserProfile import UserProfile
 from packages.backend.db_access.models.UserProfile import UserProfile
 
 router = APIRouter()
