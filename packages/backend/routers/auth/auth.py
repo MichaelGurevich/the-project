@@ -1,11 +1,9 @@
-from fastapi import APIRouter
-import boto3
-import botocore.exceptions as boto_exceptions
-from db_access.passwords import hash_password, validate_password
+from fastapi import APIRouter, HTTPException
+from fastapi.responses import JSONResponse
 
-#from db_access.models.UserProfile import UserProfile
-#from ...db_access.models.UserProfile import UserProfile
 from db_access.models.UserProfile import UserProfile
+from db_access.TwineDB import UsersDB
+from db_access.passwords import hash_password, validate_password
 
 router = APIRouter()
 
@@ -14,40 +12,30 @@ def signup(user: UserProfile):
     # TODO: add user saving logic in DB
     return
 
-@router.put("/login")
-def login(user: UserProfile):
-    dynamodb = boto3.resource('dynamodb')
-    user_table = dynamodb.Table('twine-users')
+@router.get("/login")
+def login(username: str, password: str):
+    db = UsersDB()
 
-    try:
-        # TODO: add a variable somewhere that is the string 'username'
-        response = user_table.get_item(Key = {'username' : user.name})
+    success, item = db.get_user(username)
     
-    except boto_exceptions.ClientError as err:
-        return {"error": f""" Something went wrong while accessing the table.
-                  error message: {err.response["Error"]["Message"]}"""}, err.response['Error']['Code']
-        
-    item = response.get("Item")
-
-<<<<<<< Updated upstream
-=======
+    # failed to access db
+    if not success:
+        raise HTTPException(500, "Failed to access database!")
+    # if we got empty data
     if not item:
         # user wasn't found
-        return {"error": "User not found"}, 404
+        raise HTTPException(404, detail= f"User {username} not found in the database.")
 
-    username = item.get("username")  # Safe access
-    hashed_password = item.get("username")
+    # unpack item into class 
+    userData = UserProfile(**item)
 
-    if not username:
-        return {"error": "Username missing in DB record"}, 500
+    if not userData.password:
+        #should never happen
+        raise HTTPException(500, detail= f"User {username} does not have password")
+    
+    if(validate_password(password, hashed = userData.password)):
+        return JSONResponse(content = userData.model_dump_json())
+    
+    raise HTTPException(401, detail= "Incorrect password, please try again!")
 
-    if not hashed_password:
-        return {"error": "Password missing in DB record"}, 500
-
-    if(validate_password(user.password, hashed_password)):
-        return {}, 200
-
-
-
->>>>>>> Stashed changes
 ## this page will create a token that will be used everywhere else
