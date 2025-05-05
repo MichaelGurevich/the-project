@@ -1,12 +1,6 @@
 from pydantic import BaseModel, HttpUrl
 from typing import Optional
 from enum import Enum
-from packages.backend.db_access.models.UserProfile import UserProfile
-
-class SaveJob(BaseModel):
-    job_id: str
-    user: UserProfile
-
 
 # Enums for limited options
 class LoadEnum(str, Enum):
