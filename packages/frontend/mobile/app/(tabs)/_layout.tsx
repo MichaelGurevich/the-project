@@ -6,17 +6,23 @@ import { Tabs } from 'expo-router';
 import { ThemeProvider } from "styled-components/native";
 import { lightTheme } from "../../theme/theme";
 
+import { IconContext, IconProps } from 'phosphor-react-native';
 
-const TestView = styled.View`
-    height: 100px;
-    width: 50px;
-    background-color: red;
-`
-
+const ICON_DEFAULT_STYLE:IconProps = 
+{
+    size: 24,
+    color: 'black',
+    weight: 'regular'
+} 
 
 export default function TabLayout() {
     return (
-        <ThemeProvider theme={lightTheme}>
+        <IconContext.Provider 
+            value={{
+                ...ICON_DEFAULT_STYLE
+            }}
+        >
+            <ThemeProvider theme={lightTheme}>
             <Tabs
                 //tabBar={props => <TabItem />}
             >
@@ -40,5 +46,8 @@ export default function TabLayout() {
 
             </Tabs>
         </ThemeProvider>
+
+        </IconContext.Provider>
+        
     );
 }
