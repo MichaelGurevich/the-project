@@ -2,8 +2,13 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+
+export type BottomNavigationContainerProps = {
+  children: React.ReactNode,
+}
+
 // A styled container mimicking Instagram's bottom navigation bar
-export const BottomNavContainer = styled(SafeAreaView).attrs({
+export const BottomNavigationContainer = styled(SafeAreaView).attrs({
   // ensure safe-area padding on devices with notches
   edges: ['bottom'],
 })`
