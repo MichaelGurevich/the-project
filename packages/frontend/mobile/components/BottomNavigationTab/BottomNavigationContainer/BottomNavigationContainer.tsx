@@ -1,16 +1,12 @@
-import React from 'react';
-import styled from 'styled-components/native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-
-
-export type BottomNavigationContainerProps = {
-  children: React.ReactNode,
-}
+import React from "react";
+import styled from "styled-components/native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Platform } from "react-native";
 
 // A styled container mimicking Instagram's bottom navigation bar
 export const BottomNavigationContainer = styled(SafeAreaView).attrs({
   // ensure safe-area padding on devices with notches
-  edges: ['bottom'],
+  edges: ["bottom"],
 })`
   position: absolute;
   bottom: 0;
@@ -25,13 +21,16 @@ export const BottomNavigationContainer = styled(SafeAreaView).attrs({
   border-top-color: ${({ theme }) => theme.palette.neutral[400]};
 
   /* Elevation/shadow for a subtle top border shadow */
-  elevation: 8;
-  shadow-color: #000;
-  shadow-opacity: 0.1;
-  shadow-radius: 4px;
-
-  /* vertical padding for tap targets */
-  padding-vertical: 8px;
+  ${({ theme }) =>
+    Platform.select({
+      ios: `
+        shadow-color: ${theme.themeElevation.low.shadowColor};
+        shadow-offset: ${theme.themeElevation.low.shadowOffset.width}px ${theme.themeElevation.low.shadowOffset.height}px;
+        shadow-opacity: ${theme.themeElevation.low.shadowOpacity};
+        shadow-radius: ${theme.themeElevation.low.shadowRadius}px;
+      `,
+      android: `
+        elevation: ${theme.themeElevation.low.elevation};
+      `,
+    })}/* vertical padding for tap targets */
 `;
-
-

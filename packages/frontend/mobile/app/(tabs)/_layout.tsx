@@ -10,7 +10,7 @@ function ThemedTabs() {
 
   return (
     <IconContext.Provider value={{
-      size:   28,
+      size:   theme.iconSizes.large,
       color:  theme.palette.neutral[900],
       weight: 'regular',
     }}>
