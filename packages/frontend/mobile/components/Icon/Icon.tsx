@@ -1,44 +1,29 @@
-// components/Icon.tsx
 import React from 'react';
-import styled from 'styled-components/native';
-import { ImageSourcePropType, ViewStyle } from 'react-native';
+import styled from "styled-components/native";
+import * as PhosphorIcons from 'phosphor-react-native';
+import { Pressable, PressableProps, } from 'react-native';
 
-interface IconProps {
-  source: ImageSourcePropType;
-  size: number;
-  elevation?: number;
-}
+export type IconName = keyof typeof PhosphorIcons;
 
-const IconContainer = styled.View<{
-  size: number;
-  elevation: number;
-}>`
-  width: ${({ size }) => size}px;
-  height: ${({ size }) => size}px;
-  elevation: ${({ elevation }) => elevation};
-  shadow-color: #000;
-  shadow-offset: 0px 2px;
-  shadow-opacity: 0.25;
-  shadow-radius: 3.84px;
-  background-color: white;
-  border-radius: ${({ size }) => size / 2}px;
-  overflow: hidden;
-`;
+export type IconProps = {
+  iconName: IconName;
+  size?: number;
+  color?: string;
+  weight?: 'thin' | 'light' | 'regular' | 'bold' | 'fill' | 'duotone';
+} & Pick<PressableProps, 'onPress'>;
 
-const StyledImage = styled.Image<{
-  size: number;
-}>`
-  width: ${({ size }) => size}px;
-  height: ${({ size }) => size}px;
-  resize-mode: contain;
-`;
+export const Icon = ({
+  iconName,
+  size = 24,
+  color = 'black',
+  weight = 'regular',
+  ...rest
+}: IconProps) => {
+  const PhosphorIcon = PhosphorIcons[iconName] as React.ComponentType<any>;
 
-const Icon: React.FC<IconProps> = ({ source, size, elevation = 0 }) => {
   return (
-    <IconContainer size={size} elevation={elevation}>
-      <StyledImage source={source} size={size} />
-    </IconContainer>
+    <Pressable {...rest}>
+      <PhosphorIcon size={size} color={color} weight={weight} />
+    </Pressable>
   );
 };
-
-export default Icon;
