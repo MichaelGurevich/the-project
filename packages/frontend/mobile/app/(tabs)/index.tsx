@@ -9,23 +9,7 @@ export default function HomeScreen() {
   return (
     
       <View style={{ flex: 1, backgroundColor: "#fff" }}>
-        {/* <FeaturedTileLayout jobList={JOBS} /> */}
-        <Icon
-          iconName="House"
-          size={32}
-          color="black"
-          weight="regular"        
-        />
-
-      <Icon
-          iconName="House"
-          size={32}
-          color="black"
-          weight="fill"  
-          onPress = {()=>console.log("hello")};
-          }      
-        />
-
+        <FeaturedTileLayout jobList={JOBS} />
         
       </View>
     

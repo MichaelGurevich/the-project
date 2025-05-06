@@ -3,6 +3,11 @@ import styled from "styled-components/native";
 import * as PhosphorIcons from 'phosphor-react-native';
 import { Pressable, PressableProps, } from 'react-native';
 
+
+const ICON_DEFAULT_SIZE = 24;
+const ICON_DEFAULT_WEIGHT = 'regular';
+const ICON_DEFAULT_COLOR = 'black';
+
 export type IconName = keyof typeof PhosphorIcons;
 
 export type IconProps = {
@@ -10,20 +15,17 @@ export type IconProps = {
   size?: number;
   color?: string;
   weight?: 'thin' | 'light' | 'regular' | 'bold' | 'fill' | 'duotone';
-} & Pick<PressableProps, 'onPress'>;
+}
 
 export const Icon = ({
   iconName,
-  size = 24,
-  color = 'black',
-  weight = 'regular',
-  ...rest
+  size = ICON_DEFAULT_SIZE,
+  color = ICON_DEFAULT_WEIGHT,
+  weight = ICON_DEFAULT_WEIGHT,
 }: IconProps) => {
   const PhosphorIcon = PhosphorIcons[iconName] as React.ComponentType<any>;
 
   return (
-    <Pressable {...rest}>
       <PhosphorIcon size={size} color={color} weight={weight} />
-    </Pressable>
   );
 };
