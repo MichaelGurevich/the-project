@@ -1,6 +1,6 @@
 import boto3
 import botocore.exceptions as boto_exceptions
-from db_access.models import JobProfile, UserProfile
+from packages.backend.db_access.models import JobProfile, UserProfile
 
 JOBS_TABLE_NAME  = 'twine-jobs'
 USERS_TABLE_NAME = 'twine-users'
@@ -32,7 +32,7 @@ class UsersDB():
     
     def get_user(self, username: str) -> tuple[bool,dict]:
         ''' input:  username string
-            output: bool - true if successful
+            output: bool - success/ failure 
                     dict - user data from db'''
         try:
             response = self.table.get_item(Key = {USERS_PARTITION_KEY : username})
@@ -40,3 +40,15 @@ class UsersDB():
             return False, None
         
         return True, response.get("Item")
+    
+    def save_user(self, user: UserProfile) -> bool:
+        ''' inpit:  user profile
+            output: bool - success/ failure'''
+        try:
+            self.table.put_item(
+                Item = user.model_dump()
+            )
+        except boto_exceptions.ClientError as err:
+            return False
+        
+        return True
