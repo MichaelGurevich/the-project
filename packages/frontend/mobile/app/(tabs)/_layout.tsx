@@ -1,53 +1,43 @@
 import React from 'react';
-import styled from 'styled-components/native';
 import { Tabs } from 'expo-router';
+import { ThemeProvider, useTheme } from 'styled-components/native';
+import { lightTheme } from '../../theme/theme';
+import { IconContext } from 'phosphor-react-native';
 
-//import { BottomTabBar } from '../../components/BottomTabsBar';
-import { ThemeProvider } from "styled-components/native";
-import { lightTheme } from "../../theme/theme";
 
-import { IconContext, IconProps } from 'phosphor-react-native';
+function ThemedTabs() {
+  const theme = useTheme();
 
-const ICON_DEFAULT_STYLE:IconProps = 
-{
-    size: 24,
-    color: 'black',
-    weight: 'regular'
-} 
+  return (
+    <IconContext.Provider value={{
+      size:   24,
+      color:  theme.palette.neutral[900],
+      weight: 'regular',
+    }}>
+      <Tabs>
+        <Tabs.Screen
+          name="index"
+          options={{
+            title: 'Home',
+            headerShown: false,
+          }}
+        />
+        <Tabs.Screen
+          name="Saved"
+          options={{
+            title: 'Saved',
+            headerShown: false,
+          }}
+        />
+      </Tabs>
+    </IconContext.Provider>
+  );
+}
 
 export default function TabLayout() {
-    return (
-        <IconContext.Provider 
-            value={{
-                ...ICON_DEFAULT_STYLE
-            }}
-        >
-            <ThemeProvider theme={lightTheme}>
-            <Tabs
-                //tabBar={props => <TabItem />}
-            >
-
-                <Tabs.Screen
-                    name="index"
-                    options={{
-                        title: 'Home',
-                        headerShown: false,
-                    }}
-                />
-
-
-                <Tabs.Screen
-                    name="Saved"
-                    options={{
-                        title: 'Saved',
-                        headerShown: false,
-                    }}
-                />
-
-            </Tabs>
-        </ThemeProvider>
-
-        </IconContext.Provider>
-        
-    );
+  return (
+    <ThemeProvider theme={lightTheme}>
+      <ThemedTabs />
+    </ThemeProvider>
+  );
 }
