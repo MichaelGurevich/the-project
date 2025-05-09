@@ -3,18 +3,20 @@ import { Tabs } from 'expo-router';
 import { ThemeProvider, useTheme } from 'styled-components/native';
 import { lightTheme } from '../../theme/theme';
 import { IconContext } from 'phosphor-react-native';
-
+import { BottomNavigationBar } from '@/components/BottomNavigationTab';
 
 function ThemedTabs() {
   const theme = useTheme();
 
   return (
     <IconContext.Provider value={{
-      size:   24,
+      size:   theme.iconSizes.large,
       color:  theme.palette.neutral[900],
       weight: 'regular',
     }}>
-      <Tabs>
+      <Tabs
+        tabBar={() => (<BottomNavigationBar/>)}
+      >
         <Tabs.Screen
           name="index"
           options={{
