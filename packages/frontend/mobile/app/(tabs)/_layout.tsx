@@ -4,7 +4,6 @@ import { ThemeProvider, useTheme } from "styled-components/native";
 import { lightTheme } from "../../theme/theme";
 import { IconContext } from "phosphor-react-native";
 import { BottomNavigationBar } from "@/components/BottomNavigationTab";
-import { BottomNavItem } from "@/components/BottomNavigationTab/BottomNavItem";
 import { IconProps } from "@/components/Icon";
 
 export type tabIconsData = {
@@ -31,19 +30,56 @@ function ThemedTabs() {
           options={
             {
               iconsData: [
-                {
-                  iconName: "House",
-                  weight: "regular",
-                },
-                {
-                  iconName: "House",
-                  weight: "fill",
-                },
+                { iconName: "House", weight: "regular" },
+                { iconName: "House", weight: "fill" },
               ],
             } as CustomTabScreenOptions
           }
         />
-        
+        <Tabs.Screen
+          name="Search"
+          options={
+            {
+              iconsData: [
+                { iconName: "MagnifyingGlass", weight: "regular" },
+                { iconName: "MagnifyingGlass", weight: "fill" },
+              ],
+            } as CustomTabScreenOptions
+          }
+        />
+        <Tabs.Screen
+          name="Discover"
+          options={
+            {
+              iconsData: [
+                { iconName: "Compass", weight: "regular" },
+                { iconName: "Compass", weight: "fill" },
+              ],
+            } as CustomTabScreenOptions
+          }
+        />
+        <Tabs.Screen
+          name="Saved"
+          options={
+            {
+              iconsData: [
+                { iconName: "BookmarkSimple", weight: "regular" },
+                { iconName: "BookmarkSimple", weight: "fill" },
+              ],
+            } as CustomTabScreenOptions
+          }
+        />
+        <Tabs.Screen
+          name="Profile"
+          options={
+            {
+              iconsData: [
+                { iconName: "User", weight: "regular" },
+                { iconName: "User", weight: "fill" },
+              ],
+            } as CustomTabScreenOptions
+          }
+        />
       </Tabs>
     </IconContext.Provider>
   );
