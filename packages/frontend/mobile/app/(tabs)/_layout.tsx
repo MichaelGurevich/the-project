@@ -6,33 +6,33 @@ import { IconContext } from "phosphor-react-native";
 import { BottomNavigationBar } from "@/components/BottomNavigationTab";
 import { CustomTabScreenOptions } from "@/components/BottomNavigationTab";
 
-type pageData = {
-  pageName: string;
+type routeData = {
+  routeName: string;
 } & CustomTabScreenOptions;
 
-const pagesData: pageData[] = [
+const ROUTES_DATA: routeData[] = [
   {
-    pageName: "index",
+    routeName: "index",
     nonFocusedIcon: { iconName: "House", weight: "regular" },
     focusedIcon: { iconName: "House", weight: "fill" },
   },
   {
-    pageName: "Search",
+    routeName: "Search",
     nonFocusedIcon: { iconName: "MagnifyingGlass", weight: "regular" },
     focusedIcon: { iconName: "MagnifyingGlass", weight: "fill" },
   },
   {
-    pageName: "Discover",
+    routeName: "Discover",
     nonFocusedIcon: { iconName: "Compass", weight: "regular" },
     focusedIcon: { iconName: "Compass", weight: "fill" },
   },
   {
-    pageName: "Saved",
+    routeName: "Saved",
     nonFocusedIcon: { iconName: "BookmarkSimple", weight: "regular" },
     focusedIcon: { iconName: "BookmarkSimple", weight: "fill" },
   },
   {
-    pageName: "Profile",
+    routeName: "Profile",
     nonFocusedIcon: { iconName: "User", weight: "regular" },
     focusedIcon: { iconName: "User", weight: "fill" },
   },
@@ -55,10 +55,10 @@ function ThemedTabs() {
           headerShown: false,
         }}
       >
-        {pagesData.map(({ pageName, nonFocusedIcon, focusedIcon }) => (
+        {ROUTES_DATA.map(({ routeName, nonFocusedIcon, focusedIcon }) => (
           <Tabs.Screen
-            key={pageName}
-            name={pageName}
+            key={routeName}
+            name={routeName}
             options={
               {
                 nonFocusedIcon,
