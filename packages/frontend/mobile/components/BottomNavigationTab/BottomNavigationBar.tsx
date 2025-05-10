@@ -23,13 +23,27 @@ export const BottomNavigationBar = ({
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const customOptions = options as CustomTabScreenOptions;
-        const {focusedIcon, nonFocusedIcon} = customOptions;
-        
+        const { focusedIcon, nonFocusedIcon } = customOptions;
+
+        const isFocused = state.index === index;
+
+        const onPress = () => {
+          const event = navigation.emit({
+            type: "tabPress",
+            target: route.key,
+            canPreventDefault: true,
+          });
+
+          if (!isFocused && !event.defaultPrevented) {
+            navigation.navigate(route.name, route.params);
+          }
+        };
+
         return (
           <BottomNavItem
             key={index}
             {...nonFocusedIcon}
-            onPress={() => console.log("hello")}
+            onPress={onPress}
           />
         );
       })}

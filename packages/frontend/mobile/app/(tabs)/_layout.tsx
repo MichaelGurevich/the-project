@@ -6,7 +6,6 @@ import { IconContext } from "phosphor-react-native";
 import { BottomNavigationBar } from "@/components/BottomNavigationTab";
 import {
   CustomTabScreenOptions,
-  bottomTabBarIconsData,
 } from "@/components/BottomNavigationTab";
 
 type pageData = {
@@ -52,7 +51,12 @@ function ThemedTabs() {
         weight: "regular",
       }}
     >
-      <Tabs tabBar={(props) => <BottomNavigationBar {...props} />}>
+      <Tabs
+        tabBar={(props) => <BottomNavigationBar {...props} />}
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
         {pagesData.map(({ pageName, nonFocusedIcon, focusedIcon }) => (
           <Tabs.Screen
             name={pageName}
