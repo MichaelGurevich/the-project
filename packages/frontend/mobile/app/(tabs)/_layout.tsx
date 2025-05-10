@@ -55,18 +55,22 @@ function ThemedTabs() {
           headerShown: false,
         }}
       >
-        {ROUTES_DATA.map(({ routeName, nonFocusedIcon, focusedIcon }) => (
-          <Tabs.Screen
-            key={routeName}
-            name={routeName}
-            options={
-              {
-                nonFocusedIcon,
-                focusedIcon,
-              } as CustomTabScreenOptions
-            }
-          />
-        ))}
+        {ROUTES_DATA.map(
+          ({ routeName, nonFocusedIcon, focusedIcon }: routeData) => {
+            const tabOption: CustomTabScreenOptions = {
+              nonFocusedIcon,
+              focusedIcon,
+            };
+
+            return (
+              <Tabs.Screen
+                key={routeName}
+                name={routeName}
+                options={tabOption}
+              />
+            );
+          }
+        )}
       </Tabs>
     </IconContext.Provider>
   );
