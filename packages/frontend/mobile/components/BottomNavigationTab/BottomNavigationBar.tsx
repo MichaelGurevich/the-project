@@ -39,10 +39,12 @@ export const BottomNavigationBar = ({
           }
         };
 
+        const iconData = isFocused ? focusedIcon : nonFocusedIcon;
+
         return (
           <BottomNavItem
             key={index}
-            {...nonFocusedIcon}
+            {...iconData}
             onPress={onPress}
           />
         );
