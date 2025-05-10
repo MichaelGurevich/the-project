@@ -4,9 +4,7 @@ import { ThemeProvider, useTheme } from "styled-components/native";
 import { lightTheme } from "../../theme/theme";
 import { IconContext } from "phosphor-react-native";
 import { BottomNavigationBar } from "@/components/BottomNavigationTab";
-import {
-  CustomTabScreenOptions,
-} from "@/components/BottomNavigationTab";
+import { CustomTabScreenOptions } from "@/components/BottomNavigationTab";
 
 type pageData = {
   pageName: string;
@@ -59,6 +57,7 @@ function ThemedTabs() {
       >
         {pagesData.map(({ pageName, nonFocusedIcon, focusedIcon }) => (
           <Tabs.Screen
+            key={pageName}
             name={pageName}
             options={
               {

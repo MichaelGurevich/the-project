@@ -22,7 +22,7 @@ export const BottomNavigationBar = ({
     <BottomNavigationContainer>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
-        const customOptions = options as CustomTabScreenOptions;
+        const customOptions = options as CustomTabScreenOptions; // cast the options to accomodate bottomTabBarIconsData props
         const { focusedIcon, nonFocusedIcon } = customOptions;
 
         const isFocused = state.index === index;
@@ -41,13 +41,7 @@ export const BottomNavigationBar = ({
 
         const iconData = isFocused ? focusedIcon : nonFocusedIcon;
 
-        return (
-          <BottomNavItem
-            key={index}
-            {...iconData}
-            onPress={onPress}
-          />
-        );
+        return <BottomNavItem key={index} {...iconData} onPress={onPress} />;
       })}
     </BottomNavigationContainer>
   );
