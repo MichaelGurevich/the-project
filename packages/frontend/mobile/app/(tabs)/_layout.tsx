@@ -4,14 +4,41 @@ import { ThemeProvider, useTheme } from "styled-components/native";
 import { lightTheme } from "../../theme/theme";
 import { IconContext } from "phosphor-react-native";
 import { BottomNavigationBar } from "@/components/BottomNavigationTab";
-import { CustomTabScreenOptions } from "@/components/BottomNavigationTab";
+import {
+  CustomTabScreenOptions,
+  bottomTabBarIconsData,
+} from "@/components/BottomNavigationTab";
 
-const pagesData = [
-  { pageName: "index", iconName: "House" },
-  { pageName: "Search", iconName: "MagnifyingGlass" },
-  { pageName: "Discover", iconName: "Compass" },
-  { pageName: "Saved", iconName: "BookmarkSimple" },
-  { pageName: "Profile", iconName: "User" },
+type pageData = {
+  pageName: string;
+} & CustomTabScreenOptions;
+
+const pagesData: pageData[] = [
+  {
+    pageName: "index",
+    nonFocusedIcon: { iconName: "House", weight: "regular" },
+    focusedIcon: { iconName: "House", weight: "fill" },
+  },
+  {
+    pageName: "Search",
+    nonFocusedIcon: { iconName: "MagnifyingGlass", weight: "regular" },
+    focusedIcon: { iconName: "MagnifyingGlass", weight: "fill" },
+  },
+  {
+    pageName: "Discover",
+    nonFocusedIcon: { iconName: "Compass", weight: "regular" },
+    focusedIcon: { iconName: "Compass", weight: "fill" },
+  },
+  {
+    pageName: "Saved",
+    nonFocusedIcon: { iconName: "BookmarkSimple", weight: "regular" },
+    focusedIcon: { iconName: "BookmarkSimple", weight: "fill" },
+  },
+  {
+    pageName: "Profile",
+    nonFocusedIcon: { iconName: "User", weight: "regular" },
+    focusedIcon: { iconName: "User", weight: "fill" },
+  },
 ];
 
 function ThemedTabs() {
@@ -26,15 +53,13 @@ function ThemedTabs() {
       }}
     >
       <Tabs tabBar={(props) => <BottomNavigationBar {...props} />}>
-        {pagesData.map(({ pageName, iconName }) => (
+        {pagesData.map(({ pageName, nonFocusedIcon, focusedIcon }) => (
           <Tabs.Screen
             name={pageName}
             options={
               {
-                iconsData: [
-                  { iconName, weight: "regular" },
-                  { iconName, weight: "fill" },
-                ],
+                nonFocusedIcon,
+                focusedIcon,
               } as CustomTabScreenOptions
             }
           />

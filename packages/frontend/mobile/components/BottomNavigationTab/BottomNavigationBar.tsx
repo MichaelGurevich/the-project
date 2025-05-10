@@ -5,9 +5,13 @@ import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import { IconProps } from "@/components/Icon";
 import { Tabs } from "expo-router";
 
-export type CustomTabScreenOptions = {
-  iconsData: IconProps[];
-} & React.ComponentProps<typeof Tabs.Screen>["options"];
+export type bottomTabBarIconsData = {
+  nonFocusedIcon: IconProps;
+  focusedIcon: IconProps;
+};
+
+export type CustomTabScreenOptions = bottomTabBarIconsData &
+  React.ComponentProps<typeof Tabs.Screen>["options"];
 
 export const BottomNavigationBar = ({
   state,
@@ -19,11 +23,12 @@ export const BottomNavigationBar = ({
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const customOptions = options as CustomTabScreenOptions;
-
+        const {focusedIcon, nonFocusedIcon} = customOptions;
+        
         return (
           <BottomNavItem
             key={index}
-            iconName={customOptions?.iconsData?.[0].iconName ?? "House"}
+            {...nonFocusedIcon}
             onPress={() => console.log("hello")}
           />
         );
