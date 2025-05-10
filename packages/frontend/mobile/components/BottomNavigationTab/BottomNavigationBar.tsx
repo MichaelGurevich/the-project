@@ -1,23 +1,20 @@
 import React from "react";
-import styled from "styled-components/native";
 import { BottomNavigationContainer } from "./BottomNavigationContainer";
 import { BottomNavItem } from "./BottomNavItem/BottomNavItem";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
-import { CustomTabScreenOptions } from "../../app/(tabs)/_layout";
+import { IconProps } from "@/components/Icon";
+import { Tabs } from "expo-router";
 
-type CustomTabOptions = CustomTabScreenOptions & {
-  iconsData?: { iconName: string; weight?: string }[];
-};
+export type CustomTabScreenOptions = {
+  iconsData: IconProps[];
+} & React.ComponentProps<typeof Tabs.Screen>["options"];
 
 export const BottomNavigationBar = ({
   state,
   descriptors,
   navigation,
 }: BottomTabBarProps) => {
-
-  console.log(descriptors);
-  
-  return ( 
+  return (
     <BottomNavigationContainer>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
@@ -25,6 +22,7 @@ export const BottomNavigationBar = ({
 
         return (
           <BottomNavItem
+            key={index}
             iconName={customOptions?.iconsData?.[0].iconName ?? "House"}
             onPress={() => console.log("hello")}
           />
