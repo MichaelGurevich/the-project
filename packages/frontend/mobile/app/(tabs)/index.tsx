@@ -2,7 +2,6 @@ import React from "react";
 import { View } from "react-native";
 
 import { FeaturedTileLayout } from "@/layouts/FeaturedTileLayout";
-import { ReelPage } from "@/components/FeaturedCard/ReelPage/ReelPage";
 import { JOBS } from "@/mocks/jobs";
 import {Icon, IconProps, IconName } from "@/components/Icon";
 
